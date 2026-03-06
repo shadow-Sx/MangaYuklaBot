@@ -1,0 +1,2 @@
+# MangaYuklaBot
+Mangalarni yuklash boti
