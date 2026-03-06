@@ -57,7 +57,7 @@ def webhook():
 def keep_alive():
     while True:
         try:
-            requests.get("https://yuklovchi-bot-80ui.onrender.com")
+            requests.get("https://mangayuklabot.onrender.com")
         except:
             pass
         time.sleep(600)
@@ -109,7 +109,7 @@ def required_menu():
 @bot.message_handler(commands=['admin'])
 def admin_start(message):
     if message.from_user.id != ADMIN_ID:
-        bot.reply_to(message, "❌ Siz admin emassiz!")
+        bot.reply_to(message, "")
         return
 
     bot.reply_to(
@@ -130,7 +130,7 @@ def admin_buttons(message):
 
     if text == "Cantent Qo'shish":
         admin_state[uid] = "multi_add"
-        bot.reply_to(message, "📥 Hamma videolarni tashlang.\n\nTugagach /stop deb yozing.")
+        bot.reply_to(message, "📥 Hamma Mangalarni tashlang.\n\nTugagach /stop deb yozing.")
 
     elif text == "Majburi Obuna":
         bot.send_message(
@@ -144,7 +144,7 @@ def admin_buttons(message):
 
     elif text == "🔙 Chiqish":
         admin_state[uid] = None
-        bot.send_message(uid, "Admin paneldan chiqdingiz.", reply_markup=telebot.types.ReplyKeyboardRemove())
+        bot.send_message(uid, "Admin paneldan chiqdingiz.n\Hohlasangiz /Admin orqali yana qautib kirishingiz mumkun.", reply_markup=telebot.types.ReplyKeyboardRemove())
 
 # ==========================
 #   /stop — multi upload tugatish
@@ -749,7 +749,7 @@ def start(message):
 
     bot.reply_to(
         message,
-        "<b>Bu bot orqali kanaldagi animelarni yuklab olishingiz mumkin.\n\n"
+        "<b>Bu bot orqali kanaldagi Manga va Manhwalarni yuklab olishingiz mumkin.\n\n"
         "❗️Botga habar yozmang❗️</b>",
         reply_markup=markup
     )
@@ -763,7 +763,7 @@ def start_with_code(message):
 
     item = contents.find_one({"code": code})
     if not item:
-        bot.send_message(message.chat.id, "❌ Kontent topilmadi yoki o‘chirilgan.")
+        bot.send_message(message.chat.id, "")
         return
 
     if not check_required_subs(message.from_user.id):
@@ -807,8 +807,8 @@ def callback(call):
                 "❏ Botni ishlatish qo'llanmasi:\n"
                 "1. Kanallarga obuna bo'ling!\n"
                 "2. Tekshirish tugmasini bosing ✅\n"
-                "3. Kanaldagi anime post past qismidagi yuklab olish tugmasini bosing\n\n"
-                "📢 Kanal: <i>@AniGonUz</i>"
+                "3. Kanaldagi post past qismidagi yuklab olish tugmasini bosing\n\n"
+                "📢 Asosiy Kanal: <i>@AniManxwa</i>"
                 "</b>"
             ),
             reply_markup=markup
@@ -827,9 +827,9 @@ def callback(call):
             text=(
                 "<b>"
                 "• Admin: <i>@Shadow_Sxi</i>\n"
-                "• Asosiy Kanal: <i>@AniGonUz</i>\n"
+                "• Manga/Manhwa Kanal: <i>@MangalarOlami</i>\n"
                 "• Reklama: <i>@AniReklamaUz</i>\n\n"
-                "👨‍💻 Savollar Boʻlsa: <i>@AniManxwaBot</i>"
+                "👨‍💻 Savollar Boʻlsa Chatga yozing -> <i>https://t.me/+WGVrzvfO8Ng2MmFi</i>"
                 "</b>"
             ),
             reply_markup=markup
